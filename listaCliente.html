@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>>> COMEX <<</h1>
+    <h2>:: Lista de Clientes</h2>
+    <hr />
+    <script>
+        let nCliente = 0;
+        let anoAtual = 2023;
+        let idadeAcumulada = 0;
+
+        function pulaLinha() {
+            document.write("<br>");
+            
+        }
+
+        function separar() {
+            document.write("<hr>");
+        }
+
+        function criarClientes(nome, mesNascimento, anoNascimento) {
+            nCliente += 1;
+            pulaLinha()
+            document.write(`- <strong>Código:  ${nCliente} </strong> <br>`);
+            pulaLinha();
+            document.write(
+                `Nome: ${nome} <br> Mês de nascimento: ${mesNascimento} <br> Ano de nascimento: ${anoNascimento} <br>`
+                );
+            idadeAcumulada += resultIdade(anoNascimento);
+            pulaLinha();
+            separar();
+        }
+
+        function resultIdade(anoNascimento) {
+            let idade;
+            idade = anoAtual - anoNascimento;
+            return idade;
+        }
+
+        function somaDasIdades() {
+            document.write(`Soma das idades: ${idadeAcumulada} <br>`);
+        }
+
+        function mediaDasIdades() {
+            let resultado;
+
+            resultado = Math.round(idadeAcumulada / 3);
+            document.write(`Média das idades: ${resultado}`);
+        }
+        criarClientes("Fulano", "Fevereiro", 1980);
+        criarClientes("Beltrano", "Maio", 1981);
+        criarClientes("Sicrano", "Novembro", 1984);
+
+        document.write("<p><strong>***Estatística***</strong></p>");
+        somaDasIdades();
+        mediaDasIdades();
+        pulaLinha();
+        separar();
+        document.write("<p><strong> .:: Alura LEVEL UP ::. </strong></p>");
+    </script>
+</body>
+</html>
