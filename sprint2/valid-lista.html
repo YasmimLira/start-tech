@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>>> COMEX <<</h1>
+    <h2>:: Lista de Clientes</h2>
+    <hr />
+    <script>
+        let registroClientes;
+        let anoAtual;
+        let idadeAcumulada = 0;
+
+        function pulaLinha() {
+            document.write("<br>");
+        }
+
+        function separar() {
+            document.write("<hr>");
+        }
+
+        function validarCampo(valor, mensagemErro) {
+            if (isNaN(valor) || valor <= 0) {
+                alert(mensagemErro);
+                return false;
+            }
+            return true;
+        }
+
+        anoAtual = Number(prompt('Digite o ano atual:'));
+        if (!validarCampo(anoAtual, 'Por favor, digite um ano válido e maior que zero.')) {
+            // Se a validação falhar, encerre o script
+            throw new Error('Ano atual inválido.');
+        }
+
+        registroClientes = Number(prompt('Digite a quantidade de registros:'));
+        if (!validarCampo(registroClientes, 'Por favor, digite uma quantidade válida e maior que zero.')) {
+            // Se a validação falhar, encerre o script
+            throw new Error('Quantidade de registros inválida.');
+        }
+
+        for (let i = 0; i < registroClientes; i++) {
+            // Solicitar o nome
+            let nome = prompt('Digite o nome:');
+
+            // Solicitar mês de nascimento
+            let mesNascimento = prompt('Digite o mês de nascimento:');
+
+            // Solicitar ano de nascimento
+            let anoNascimento = Number(prompt('Digite o ano de nascimento:'));
+
+            // Calcular idade dentro da função resultIdade
+            function resultIdade() {
+                let idade = anoAtual - anoNascimento;
+                return idade;
+            }
+
+            pulaLinha();
+            document.write(`- <strong>Código:  ${i + 1} </strong> <br>`); // Correção no código do cliente
+            pulaLinha();
+            document.write(
+                `Nome: ${nome} <br> Mês de nascimento: ${mesNascimento} <br> Ano de nascimento: ${anoNascimento} <br>`
+            );
+            idadeAcumulada += resultIdade();
+            pulaLinha();
+            separar();
+            // Voltar o fluxo para capturar mais registros, se necessário
+        }
+
+        function somaDasIdades() {
+            document.write(`Soma das idades: ${idadeAcumulada} <br>`);
+        }
+
+        function mediaDasIdades() {
+            let resultado = Math.round(idadeAcumulada / registroClientes); // Correção no cálculo da média
+            document.write(`Média das idades: ${resultado}`);
+        }
+
+        document.write("<p><strong>***Estatística***</strong></p>");
+        somaDasIdades();
+        mediaDasIdades();
+        pulaLinha();
+        separar();
+        document.write("<p><strong> .:: Alura LEVEL UP ::. </strong></p>");
+    </script>
+</body>
+</html>
