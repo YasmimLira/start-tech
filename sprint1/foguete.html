@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lançar Foguete</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: rgb(228, 60, 9);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #e71b0c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ee8206;
+        }
+    </style>
+  </head>
+  <body>
+    <script>
+    
+
+      function pulaLinha(){
+          document.write("<br><br>");
+      }
+
+      function lancarFoguete() {
+          document.write("^^^Lançamento autorizado^^^");
+          pulaLinha();
+          document.write("====^ENTRANDO NA CAMADA TROPOSFERA [15KM]^=======");
+          pulaLinha();
+          troposfera();
+      }
+
+      function troposfera() {
+          document.write("====^ENTRANDO NA CAMADA ESTRATOSFERA [50KM]^=======");
+          pulaLinha();
+          estratosfera();
+      }
+
+      function estratosfera() {
+          document.write("====^ENTRANDO NA CAMADA MESOSFERA [80KM]^=======");
+          pulaLinha();
+          mesosfera();
+      }
+
+      function mesosfera() {
+          document.write("====^ENTRANDO NA CAMADA TERMOSFERA [500KM]^=======");
+          pulaLinha();
+          termosfera();
+      }
+
+      function termosfera() {
+          document.write("====^ENTRANDO NA CAMADA EXOSFERA [500KM]^=======");
+          pulaLinha();
+          exosfera();
+      }
+
+      function exosfera() {
+          document.write("************(SATÉLITES)********(TELESCÓPIOS)************");
+          pulaLinha();
+          document.write("====v SAINDO DA CAMADA EXOSFERA v=========================");
+          pulaLinha();
+          saindoExosfera();
+      }
+
+      function saindoExosfera() {
+          document.write("====v SAINDO DA CAMADA TERMOSFERA v======================");
+          pulaLinha();
+          saindoTermosfera();
+      }
+
+      function saindoTermosfera() {
+          document.write("====v SAINDO DA CAMADA MESOSFERA v=======================");
+          pulaLinha();
+          saindoMesosfera();
+      }
+      function saindoMesosfera() {
+          document.write("====v SAINDO DA CAMADA ESTRATOSFERA v=====================");
+          pulaLinha();
+          saindoEstratosfera();
+      }
+      function saindoEstratosfera() {
+          document.write("====v SAINDO DA CAMADA TROPOSFERA v=======================");
+          pulaLinha();
+          aterrissagem();
+      }
+      function aterrissagem() {
+          document.write("___Aterrissagem Perfeita!!!____");
+      }
+
+      document.write("<h1>Vamos lançar um foguete!</h1>")
+      pulaLinha();
+      document.write("<button>Clique aqui!</button>");
+      let btn = document.querySelector("button");
+      btn.onclick = lancarFoguete;
+      pulaLinha();
+    </script>
+  </body>
+</html>

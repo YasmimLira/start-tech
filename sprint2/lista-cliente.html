@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>>> COMEX <<</h1>
+    <h2>:: Lista de Clientes</h2>
+    <hr />
+    <script>
+        let nCliente = 0;
+        let anoAtual = Number(prompt('Digite o ano atual:'));
+        let idadeAcumulada = 0;
+
+        function pulaLinha() {
+            document.write("<br>");
+            
+        }
+
+        function separar() {
+            document.write("<hr>");
+        }
+
+        function criarClientes(nome, mesNascimento, anoNascimento) {
+            nCliente += 1;
+            let caractEtaria = resultIdade(anoNascimento);
+            pulaLinha()
+            document.write(`- <strong>Código:  ${nCliente} </strong> <br>`);
+            pulaLinha();
+            document.write(
+                `Nome: ${nome} <br> Mês de nascimento: ${mesNascimento} <br> Ano de nascimento: ${anoNascimento} <br> Caracteristica Etária: ${caractEtaria}`
+                );
+            pulaLinha();
+            separar();
+        }
+
+        function resultIdade(anoNascimento) {
+            let idade;
+            let caractEtaria;
+            idade = anoAtual - anoNascimento;
+            if (idade <= 17) {
+                caractEtaria = 'Adolescente';
+            }else if (idade >= 18 && idade <= 29) {
+                caractEtaria = 'Jovem'
+            } else if (idade >= 30 && idade <= 59){
+                caractEtaria = 'Adulto'
+            }else {
+                caractEtaria = 'Idoso'
+            }
+            return caractEtaria;
+        }
+
+        criarClientes("Fulano", "Fevereiro", 2006);
+        criarClientes("Beltrano", "Maio", 2000);
+        criarClientes("Sicrano", "Novembro", 1954);
+
+        document.write("<p><strong> .:: Alura LEVEL UP ::. </strong></p>");
+    </script>
+</body>
+</html>
